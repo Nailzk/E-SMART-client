@@ -7,6 +7,12 @@
     "forceConsistentCasingInFileNames": true,
     "strict": true,
     "noImplicitOverride": true,
+    "paths": {
+      "@app": ["/src"],
+      "footer": ["projects/footer/index."],
+      "header": ["projects/header/index."],
+      "homepage": ["projects/homepage/index."]
+    },
     "noPropertyAccessFromIndexSignature": true,
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
