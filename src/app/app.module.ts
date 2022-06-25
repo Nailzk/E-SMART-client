@@ -15,10 +15,7 @@ import { AppRouterModule } from './app-routing.module';
 registerLocaleData(en);
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    LayoutComponent
-  ],
+  declarations: [AppComponent, LayoutComponent],
   imports: [
     BrowserModule,
     FormsModule,
@@ -27,6 +24,6 @@ registerLocaleData(en);
     BrowserAnimationsModule, // ! IMPORT AS LAST MODULE
   ],
   providers: [{ provide: NZ_I18N, useValue: en_US }],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

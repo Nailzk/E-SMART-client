@@ -5,10 +5,7 @@ import { HomepageComponent } from './homepage.component';
 
 @NgModule({
   declarations: [HomepageComponent],
-  imports: [
-    CommonModule,
-    RouterModule.forChild([{ path: '', component: HomepageComponent }]),
-  ],
+  imports: [CommonModule, RouterModule.forChild([{ path: '', component: HomepageComponent }])],
   exports: [HomepageComponent],
 })
 export class HomepageModule {}
