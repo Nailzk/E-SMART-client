@@ -14,8 +14,7 @@ const modules: Route[] = [
     children: [
       {
         path: 'home',
-        loadChildren: () =>
-          import('../../projects/homepage').then((m) => m.HomepageModule),
+        loadChildren: () => import('../../projects/homepage').then((m) => m.HomepageModule),
       },
       {
         path: '',

@@ -8,7 +8,7 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "lint": "ng lint",
-    "prettier:check": "prettier --config .prettierrc --check \"src/**/*.{ts,css,html}\"",
+    "prettier:check": "prettier --config .prettierrc.json --write \"**/**/*.component.{ts,css,html}\"",
     "prepare": "husky install"
   },
   "lint-staged": {
