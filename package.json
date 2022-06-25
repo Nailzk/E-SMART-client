@@ -10,11 +10,6 @@
     "lint": "ng lint",
     "prettier:check": "prettier --config .prettierrc --check \"src/**/*.{ts,css,html}\""
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged --relative"
-    }
-  },
   "lint-staged": {
     "*.{js,ts}": [
       "eslint --fix"
