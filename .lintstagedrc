@@ -1,0 +1,8 @@
+{
+    "projects/**/*.{html,ts}": [
+        "prettier --write"
+    ],
+    "projects/**/*.{html,ts,scss}": [
+        "eslint"
+    ]
+}
