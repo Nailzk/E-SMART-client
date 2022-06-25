@@ -117,15 +117,6 @@
             ],
             "scripts": []
           }
-        },
-        "lint": {
-          "builder": "@angular-eslint/builder:lint",
-          "options": {
-            "lintFilePatterns": [
-              "src/**/*.ts",
-              "src/**/*.component.html"
-            ]
-          }
         }
       }
     },
@@ -156,6 +147,15 @@
             "main": "projects/homepage/src/test.ts",
             "tsConfig": "projects/homepage/tsconfig.spec.json",
             "karmaConfig": "projects/homepage/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "projects/homepage/**/*.ts",
+              "projects/homepage/**/*.html"
+            ]
           }
         }
       }
@@ -188,6 +188,15 @@
             "tsConfig": "projects/header/tsconfig.spec.json",
             "karmaConfig": "projects/header/karma.conf.js"
           }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "projects/header/**/*.ts",
+              "projects/header/**/*.html"
+            ]
+          }
         }
       }
     },
@@ -218,6 +227,55 @@
             "main": "projects/footer/src/test.ts",
             "tsConfig": "projects/footer/tsconfig.spec.json",
             "karmaConfig": "projects/footer/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "projects/footer/**/*.ts",
+              "projects/footer/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "test": {
+      "projectType": "library",
+      "root": "projects/test",
+      "sourceRoot": "projects/test/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/test/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/test/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/test/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/test/src/test.ts",
+            "tsConfig": "projects/test/tsconfig.spec.json",
+            "karmaConfig": "projects/test/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "projects/test/**/*.ts",
+              "projects/test/**/*.html"
+            ]
           }
         }
       }

@@ -11,7 +11,13 @@
       "@app": ["/src"],
       "footer": ["projects/footer/index."],
       "header": ["projects/header/index."],
-      "homepage": ["projects/homepage/index."]
+      "homepage": [
+        "projects/homepage/index."
+      ],
+      "test": [
+        "dist/test/test",
+        "dist/test"
+      ]
     },
     "noPropertyAccessFromIndexSignature": true,
     "noImplicitReturns": true,
@@ -24,10 +30,7 @@
     "importHelpers": true,
     "target": "es2017",
     "module": "es2020",
-    "lib": [
-      "es2020",
-      "dom"
-    ]
+    "lib": ["es2020", "dom"]
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
