@@ -6,18 +6,16 @@
     "outDir": "./dist/out-tsc",
     "forceConsistentCasingInFileNames": true,
     "strict": true,
-    "noImplicitOverride": true,
+    "noImplicitOverride": false,
     "paths": {
-      "@app": ["/src"],
-      "footer": ["projects/footer/index."],
-      "header": ["projects/header/index."],
-      "homepage": [
-        "projects/homepage/index."
-      ],
-      "test": [
-        "dist/test/test",
-        "dist/test"
-      ]
+      "@env/*": ["src/environments/*"],
+      "@app/*": ["src/app/*"],
+      "base-components": ["projects/base-components/index"],
+      "communication": ["projects/communication/index"],
+      "footer": ["projects/footer/index"],
+      "header": ["projects/header/index"],
+      "homepage": ["projects/homepage/index"],
+      "test": ["dist/test/test", "dist/test"]
     },
     "noPropertyAccessFromIndexSignature": true,
     "noImplicitReturns": true,

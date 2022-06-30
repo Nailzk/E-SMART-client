@@ -240,23 +240,23 @@
         }
       }
     },
-    "test": {
+    "base-components": {
       "projectType": "library",
-      "root": "projects/test",
-      "sourceRoot": "projects/test/src",
+      "root": "projects/base-components",
+      "sourceRoot": "projects/base-components/src",
       "prefix": "lib",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:ng-packagr",
           "options": {
-            "project": "projects/test/ng-package.json"
+            "project": "projects/base-components/ng-package.json"
           },
           "configurations": {
             "production": {
-              "tsConfig": "projects/test/tsconfig.lib.prod.json"
+              "tsConfig": "projects/base-components/tsconfig.lib.prod.json"
             },
             "development": {
-              "tsConfig": "projects/test/tsconfig.lib.json"
+              "tsConfig": "projects/base-components/tsconfig.lib.json"
             }
           },
           "defaultConfiguration": "production"
@@ -264,17 +264,57 @@
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "main": "projects/test/src/test.ts",
-            "tsConfig": "projects/test/tsconfig.spec.json",
-            "karmaConfig": "projects/test/karma.conf.js"
+            "main": "projects/base-components/src/test.ts",
+            "tsConfig": "projects/base-components/tsconfig.spec.json",
+            "karmaConfig": "projects/base-components/karma.conf.js"
           }
         },
         "lint": {
           "builder": "@angular-eslint/builder:lint",
           "options": {
             "lintFilePatterns": [
-              "projects/test/**/*.ts",
-              "projects/test/**/*.html"
+              "projects/base-components/**/*.ts",
+              "projects/base-components/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "communication": {
+      "projectType": "library",
+      "root": "projects/communication",
+      "sourceRoot": "projects/communication/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/communication/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/communication/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/communication/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/communication/src/test.ts",
+            "tsConfig": "projects/communication/tsconfig.spec.json",
+            "karmaConfig": "projects/communication/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "projects/communication/**/*.ts",
+              "projects/communication/**/*.html"
             ]
           }
         }
