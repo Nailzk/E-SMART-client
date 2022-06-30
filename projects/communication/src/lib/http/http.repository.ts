@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Inject, Injectable } from '@angular/core';
 import { map, Observable } from 'rxjs';
 import { IBaseItem, IPaginationResponse } from '../interface';
@@ -19,8 +19,10 @@ export class HttpRepository<T extends IBaseItem> extends Repository<T> {
   }
 
   public getItems(params?: any): Observable<IPaginationResponse<T>> {
+    const httpParams = new HttpParams({ fromObject: params });
+
     return this._http
-      .get<IPaginationResponse<T>>(this._baseUrl, { ...this._httpOptions })
+      .get<IPaginationResponse<T>>(this._baseUrl, { ...this._httpOptions, params: httpParams })
       .pipe(map(this._transformEventResponse), map(this.transform));
   }
 
