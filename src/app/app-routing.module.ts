@@ -1,11 +1,8 @@
 import { NgModule } from '@angular/core';
 
-import { registerLocaleData } from '@angular/common';
-import en from '@angular/common/locales/en';
 import { PreloadAllModules, Route, RouterModule } from '@angular/router';
 import { LayoutComponent } from './layout/layout.component';
 
-registerLocaleData(en);
 
 const modules: Route[] = [
   {
@@ -14,7 +11,7 @@ const modules: Route[] = [
     children: [
       {
         path: 'home',
-        loadChildren: () => import('../../projects/homepage').then((m) => m.HomepageModule),
+        loadChildren: () => import('homepage').then((m) => m.HomepageModule),
       },
       {
         path: '',
