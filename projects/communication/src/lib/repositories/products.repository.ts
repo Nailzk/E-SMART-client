@@ -7,6 +7,6 @@ import { HttpRepository } from "../http";
 })
 export class ProductsRepository extends HttpRepository<any> {
     get _baseUrl(): string {
-        return `${environment.apiUrl}/products`
+        return `${environment.productsApiUrl}/products`
     }
 }
