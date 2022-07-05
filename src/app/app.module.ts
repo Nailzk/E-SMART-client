@@ -13,6 +13,7 @@ import { AppComponent } from './app.component';
 import { LayoutModule } from './layout/layout.module';
 import { NotifierModule } from 'notifier';
 import { NzNotificationModule } from 'ng-zorro-antd/notification';
+import { UserModule } from 'projects/user';
 
 registerLocaleData(en);
 
@@ -26,6 +27,7 @@ registerLocaleData(en);
     LayoutModule,
     RepositoriesModule.forRoot(),
     FormsModule,
+    UserModule,
     NzNotificationModule,
     NotifierModule,
     ReactiveFormsModule,
