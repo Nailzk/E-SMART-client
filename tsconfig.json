@@ -11,13 +11,15 @@
     "paths": {
       "@env/*": ["src/environments/*"],
       "@app/*": ["src/app/*"],
+      "@app/service/*": ["src/app/service/*"],
       "base-components": ["projects/base-components/index"],
       "communication": ["projects/communication/index"],
       "footer": ["projects/footer/index"],
       "header": ["projects/header/index"],
       "homepage": ["projects/homepage/index"],
       "notifier": ["projects/notifier/index"],
-      "translate": ["projects/translate/index"]
+      "translate": ["projects/translate/index"],
+      "user": ["projects/user/index"]
     },
     "noPropertyAccessFromIndexSignature": true,
     "noImplicitReturns": true,

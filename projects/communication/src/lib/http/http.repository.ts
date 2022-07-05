@@ -46,7 +46,7 @@ export class HttpRepository<T extends IBaseItem> extends Repository<T> {
     return this._http.post(this._baseUrl, item, { ...this._httpOptions }).pipe(map(this._transformEventResponse));
   }
 
-  protected transform(item: IPaginationResponse<T>): any {
+  protected transform(item: any): any {
     return item;
   }
 

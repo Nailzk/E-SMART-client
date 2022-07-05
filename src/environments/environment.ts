@@ -4,8 +4,10 @@
 
 export const environment = {
   production: false,
-  apiUrl: '/api'
+  productsApiUrl: '/api/products',
+  authApiUrl: '/api/auth',
 };
+
 
 /*
  * For easier debugging in development mode, you can import the following file

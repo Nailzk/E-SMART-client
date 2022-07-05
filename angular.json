@@ -108,13 +108,8 @@
             "tsConfig": "tsconfig.spec.json",
             "karmaConfig": "karma.conf.js",
             "inlineStyleLanguage": "scss",
-            "assets": [
-              "src/favicon.ico",
-              "src/assets"
-            ],
-            "styles": [
-              "src/styles.scss"
-            ],
+            "assets": ["src/favicon.ico", "src/assets"],
+            "styles": ["src/styles.scss"],
             "scripts": []
           }
         }
@@ -152,10 +147,7 @@
         "lint": {
           "builder": "@angular-eslint/builder:lint",
           "options": {
-            "lintFilePatterns": [
-              "projects/homepage/**/*.ts",
-              "projects/homepage/**/*.html"
-            ]
+            "lintFilePatterns": ["projects/homepage/**/*.ts", "projects/homepage/**/*.html"]
           }
         }
       }
@@ -192,10 +184,7 @@
         "lint": {
           "builder": "@angular-eslint/builder:lint",
           "options": {
-            "lintFilePatterns": [
-              "projects/header/**/*.ts",
-              "projects/header/**/*.html"
-            ]
+            "lintFilePatterns": ["projects/header/**/*.ts", "projects/header/**/*.html"]
           }
         }
       }
@@ -232,10 +221,7 @@
         "lint": {
           "builder": "@angular-eslint/builder:lint",
           "options": {
-            "lintFilePatterns": [
-              "projects/footer/**/*.ts",
-              "projects/footer/**/*.html"
-            ]
+            "lintFilePatterns": ["projects/footer/**/*.ts", "projects/footer/**/*.html"]
           }
         }
       }
@@ -272,10 +258,7 @@
         "lint": {
           "builder": "@angular-eslint/builder:lint",
           "options": {
-            "lintFilePatterns": [
-              "projects/base-components/**/*.ts",
-              "projects/base-components/**/*.html"
-            ]
+            "lintFilePatterns": ["projects/base-components/**/*.ts", "projects/base-components/**/*.html"]
           }
         }
       }
@@ -312,10 +295,7 @@
         "lint": {
           "builder": "@angular-eslint/builder:lint",
           "options": {
-            "lintFilePatterns": [
-              "projects/communication/**/*.ts",
-              "projects/communication/**/*.html"
-            ]
+            "lintFilePatterns": ["projects/communication/**/*.ts", "projects/communication/**/*.html"]
           }
         }
       }
@@ -352,10 +332,44 @@
         "lint": {
           "builder": "@angular-eslint/builder:lint",
           "options": {
-            "lintFilePatterns": [
-              "projects/notifier/**/*.ts",
-              "projects/notifier/**/*.html"
-            ]
+            "lintFilePatterns": ["projects/notifier/**/*.ts", "projects/notifier/**/*.html"]
+          }
+        }
+      }
+    },
+    "user": {
+      "projectType": "library",
+      "root": "projects/user",
+      "sourceRoot": "projects/user/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/user/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/user/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/user/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/user/src/test.ts",
+            "tsConfig": "projects/user/tsconfig.spec.json",
+            "karmaConfig": "projects/user/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": ["projects/user/**/*.ts", "projects/user/**/*.html"]
           }
         }
       }
@@ -392,14 +406,10 @@
         "lint": {
           "builder": "@angular-eslint/builder:lint",
           "options": {
-            "lintFilePatterns": [
-              "projects/translate/**/*.ts",
-              "projects/translate/**/*.html"
-            ]
+            "lintFilePatterns": ["projects/translate/**/*.ts", "projects/translate/**/*.html"]
           }
         }
       }
     }
-  },
-  "defaultProject": "frontend"
+  }
 }
