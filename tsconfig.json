@@ -17,7 +17,7 @@
       "header": ["projects/header/index"],
       "homepage": ["projects/homepage/index"],
       "notifier": ["projects/notifier/index"],
-      "test": ["dist/test/test", "dist/test"]
+      "translate": ["projects/translate/index"]
     },
     "noPropertyAccessFromIndexSignature": true,
     "noImplicitReturns": true,

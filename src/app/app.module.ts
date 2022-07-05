@@ -13,6 +13,7 @@ import { AppComponent } from './app.component';
 import { LayoutModule } from './layout/layout.module';
 import { NotifierModule } from 'notifier';
 import { NzNotificationModule } from 'ng-zorro-antd/notification';
+import { NgxTranslateModule } from 'translate';
 
 registerLocaleData(en);
 
@@ -29,6 +30,7 @@ registerLocaleData(en);
     NzNotificationModule,
     NotifierModule,
     ReactiveFormsModule,
+    NgxTranslateModule,
     BrowserAnimationsModule, // ! IMPORT AS LAST MODULE
   ],
   providers: [{ provide: NZ_I18N, useValue: en_US }],
