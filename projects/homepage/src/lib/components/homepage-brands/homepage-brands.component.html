@@ -1,0 +1,9 @@
+<section>
+  <swiper [config]="swiperOptions" class="mySwiper brandsSwiper">
+    <ng-template swiperSlide *ngFor="let slide of brands">
+      <div class="slide-brand">
+        <lib-homepage-brands-item></lib-homepage-brands-item>
+      </div>
+    </ng-template>
+  </swiper>
+</section>

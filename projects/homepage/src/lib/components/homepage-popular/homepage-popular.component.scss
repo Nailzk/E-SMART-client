@@ -1,0 +1,91 @@
+section {
+  padding: 30px 0px;
+  max-width: 1140px;
+  margin: 0 auto;
+  height: 100%;
+
+  .layout {
+    display: flex;
+    justify-content: space-between;
+
+    .women {
+      display: flex;
+      justify-content: flex-start;
+      align-items: flex-start;
+      flex-basis: 48%;
+      background-image: url('/assets/SVG/women-collection.svg');
+      height: 350px;
+      border-radius: 16px;
+      flex-direction: column;
+      padding: 20px;
+
+      h1 {
+        font-size: 36px;
+        margin: 0;
+      }
+    }
+
+    .sub-layout {
+      flex-basis: 48%;
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+
+      .bestsellers,
+      .dresses {
+        flex-basis: 48%;
+        height: 160px;
+        border-radius: 16px;
+        padding: 20px;
+      }
+
+      .dresses {
+        background-image: url('/assets/SVG/dresses-image.svg');
+      }
+
+      .bestsellers {
+        display: flex;
+        align-items: flex-end;
+        justify-content: flex-start;
+        background-color: #f0eff6;
+      }
+
+      .denim-jackets {
+        flex-basis: 100%;
+        padding: 20px;
+        height: 160px;
+        border-radius: 16px;
+        background-image: url('/assets/SVG/jackets-image.svg');
+        background-image: url('/assets/SVG/jackets-image.svg'), linear-gradient(90deg, rgba(237,163,181,1) 0%, rgba(0,212,255,0) 100%);
+        background-position: right;
+        background-repeat: no-repeat;
+      }
+
+      .dresses,.denim-jackets {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        flex-direction: column;
+      }
+    }
+  }
+}
+
+.tag {
+    border-radius: 8px;
+    color: #fff;
+    background-color: rgba($color: #f0eff6, $alpha: 0.6);
+    display: inline-block;
+    padding: 5px 20px;
+    letter-spacing: 0.4px;
+}
+
+.item {
+    transition: all 0.5s ease-in-out;
+
+    &:hover {
+        cursor: pointer;
+        box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+        transform: scale(1.01);
+    }
+}

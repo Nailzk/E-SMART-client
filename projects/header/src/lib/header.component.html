@@ -1,12 +1,13 @@
-<a nz-dropdown [nzDropdownMenu]="menu">
-  Hover me
-  <i nz-icon nzType="down"></i>
-</a>
-<div class="div">
-  {{currentLang  | translate}}
+<div class="header-wrapper">
+  <div class="menu-item icon">
+    <a routerLink="/home"> <img src="/assets/SVG/logo.svg" alt="" /> MakeUp Shop</a>
+  </div>
+  <div class="menu-item" *ngFor="let item of headerMenu">
+    <a [routerLink]="item?.link">{{item?.name}}</a>
+  </div>
+  <div class="icons-wrapper">
+    <fa-icon [icon]="faUser"></fa-icon>
+    <fa-icon [icon]="faSearch"></fa-icon>
+    <fa-icon [icon]="faCart"></fa-icon>
+  </div>
 </div>
-<nz-dropdown-menu #menu="nzDropdownMenu">
-  <ul nz-menu nzSelectable>
-    <li nz-menu-item *ngFor="let lang of langList" (click)="handleLanguageChange(lang)">{{lang.label | translate}}</li>
-  </ul>
-</nz-dropdown-menu>
