@@ -1,0 +1,52 @@
+@import '/src/theme/variables.scss';
+@import '~swiper/css';
+@import "~swiper/css/pagination";
+
+.swiper-pagination-bullet-active {
+  background-color: $primary-color;
+}
+
+
+.slide {
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  padding: 0px 25px;
+  justify-content: center;
+  height: 440px;
+  border-radius: 16px;
+
+  .wrapper {
+    width: 50%;
+
+    .sub-heading {
+      font-size: 18px;
+      max-width: 300px;
+    }
+
+    .heading {
+      font-size: 45px;
+    }
+
+    .button-wrapper {
+      display: flex;
+    }
+  }
+}
+
+.slide-1 {
+  background-image: url('/assets/SVG/slide-bg-1.svg');
+}
+
+.slide-2 {
+  background-image: url('/assets/SVG/slide-bg-2.png');
+  .wrapper {
+    margin-left: auto;
+  }
+}
+
+.slide-3 {
+  background-image: url('/assets/SVG/slide-bg-3.png');
+}

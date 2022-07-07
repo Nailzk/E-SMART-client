@@ -1,0 +1,24 @@
+@import '~swiper/css';
+@import '~swiper/css/free-mode';
+@import "~swiper/css/navigation";
+
+section {
+  padding: 30px 0px;
+  max-width: 1140px;
+  margin: 0 auto;
+  height: 100%;
+  background-color: #fff;
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.swiper-slide {
+    width: 240px !important;
+    .slide-brand {
+        width: 240px;
+    }
+}
+
+.brandsSwiper {
+    overflow: visible;
+}

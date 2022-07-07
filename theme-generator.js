@@ -10,7 +10,8 @@ less.render(`${basicStyles}`, {
     javascriptEnabled: true,
     plugins: [new LessPluginCleanCSS({ advanced: true })],
     modifyVars: {
-        'primary-color': '#ffd8da',
+        'primary-color': '#eda3b5',
+        'secondary-color': '#1b2437'
     }
 }).then(data => {
     fs.writeFileSync(

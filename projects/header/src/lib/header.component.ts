@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { faMagnifyingGlass, faShoppingCart, faUser } from '@fortawesome/free-solid-svg-icons';
 import { ILang, NgxTranslateService } from 'translate';
+import { HeaderService } from './header.service';
+import { IHeaderMenu } from './interface';
 
 @Component({
   selector: 'lib-header',
@@ -7,16 +10,26 @@ import { ILang, NgxTranslateService } from 'translate';
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent implements OnInit {
-  langList: ILang[] = [];
-  currentLang: string;
+  public langList: ILang[] = [];
+  public headerMenu: IHeaderMenu[] = [];
 
-  constructor(private readonly _translateService: NgxTranslateService) {}
+  public currentLang: string;
+
+  public faUser = faUser;
+  public faSearch = faMagnifyingGlass;
+  public faCart = faShoppingCart;
+
+  constructor(
+    private readonly _translateService: NgxTranslateService,
+    private readonly _headerService: HeaderService,
+  ) {}
 
   ngOnInit(): void {
     this.langList = this._translateService.langList;
     this.currentLang = this._translateService.currentLanguage;
+    this.headerMenu = this._headerService.menuList;
 
-    this._subscribeOnLanguageChanges()
+    this._subscribeOnLanguageChanges();
   }
 
   public handleLanguageChange(lang: ILang): void {
@@ -26,7 +39,6 @@ export class HeaderComponent implements OnInit {
   private _subscribeOnLanguageChanges() {
     this._translateService.onLanguageChanges().subscribe((val) => {
       this.currentLang = val.label;
-    })
+    });
   }
-
 }

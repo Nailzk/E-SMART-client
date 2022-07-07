@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="22px" height="22px" viewBox="0 0 22 22" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Other/clay_shop_logo_small</title>
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Other/header" transform="translate(-114.000000, -21.000000)" fill="#1B2437">
+            <g id="Other/clay_shop_logo_small" transform="translate(114.000000, 21.000000)">
+                <path d="M11.9166667,20.1213833 C16.3711167,19.6790917 19.8875417,16.0480833 20.1508083,11.5432167 L11.9166667,11.5432167 L11.9166667,20.1213833 Z M21.9868,11.5432167 L22,11.5432167 L22,11 L22,0 L11,0 C4.924865,0 0,4.924865 0,11 C0,17.0751167 4.924865,22 11,22 C16.892975,22 21.7036417,17.365975 21.9868,11.5432167 Z M11,1.83333333 C5.9373875,1.83333333 1.83333333,5.9373875 1.83333333,11 C1.83333333,15.7531917 5.45112333,19.6614917 10.0833333,20.1213833 L10.0833333,9.70988333 L20.1666667,9.70988333 L20.1666667,1.83333333 L11,1.83333333 Z" id="logo"></path>
+            </g>
+        </g>
+    </g>
+</svg>
