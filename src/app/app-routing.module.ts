@@ -14,6 +14,11 @@ const modules: Route[] = [
         loadChildren: () => import('homepage').then((m) => m.HomepageModule),
       },
       {
+        path: 'account',
+        loadChildren: () => import('account').then((m) => m.AccountModule),
+      },
+      
+      {
         path: '',
         redirectTo: 'home',
         pathMatch: 'full',

@@ -11,8 +11,8 @@ export class HeaderService {
     return [
       { name: 'Home', link: '/home' },
       { name: 'Categories', link: '' },
-      { name: 'Home', link: '/blog' },
-      { name: 'Home', link: '/contact' },
+      { name: 'Blog', link: '/blog' },
+      { name: 'Contacts', link: '/contact' },
     ];
   }
 }

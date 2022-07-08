@@ -6,8 +6,8 @@
     <a [routerLink]="item?.link">{{item?.name}}</a>
   </div>
   <div class="icons-wrapper">
-    <fa-icon [icon]="faUser"></fa-icon>
-    <fa-icon [icon]="faSearch"></fa-icon>
-    <fa-icon [icon]="faCart"></fa-icon>
+    <a routerLink="/account"> <fa-icon [icon]="faUser"></fa-icon> </a>
+    <a href=""> <fa-icon [icon]="faSearch"></fa-icon> </a>
+    <a href=""> <fa-icon [icon]="faCart"></fa-icon> </a>
   </div>
 </div>
