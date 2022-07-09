@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { faMagnifyingGlass, faShoppingCart, faUser } from '@fortawesome/free-solid-svg-icons';
+import { faClose, faMagnifyingGlass, faShoppingCart, faUser } from '@fortawesome/free-solid-svg-icons';
 import { ILang, NgxTranslateService } from 'translate';
 import { HeaderService } from './header.service';
 import { IHeaderMenu } from './interface';
@@ -14,10 +14,14 @@ export class HeaderComponent implements OnInit {
   public headerMenu: IHeaderMenu[] = [];
 
   public currentLang: string;
+  public search = ''
 
   public faUser = faUser;
   public faSearch = faMagnifyingGlass;
   public faCart = faShoppingCart;
+  public faClose = faClose;
+
+  public searchActive = false;
 
   constructor(
     private readonly _translateService: NgxTranslateService,
@@ -30,6 +34,10 @@ export class HeaderComponent implements OnInit {
     this.headerMenu = this._headerService.menuList;
 
     this._subscribeOnLanguageChanges();
+  }
+
+  public handleSearch(): void {
+    this.searchActive = !this.searchActive;
   }
 
   public handleLanguageChange(lang: ILang): void {

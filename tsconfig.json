@@ -13,6 +13,7 @@
       "@app/*": ["src/app/*"],
       "@app/service/*": ["src/app/service/*"],
       "account": ["projects/account/index"],
+      "auth": ["projects/auth/index"],
       "base-components": ["projects/base-components/index"],
       "comments": ["projects/comments/index"],
       "communication": ["projects/communication/index"],

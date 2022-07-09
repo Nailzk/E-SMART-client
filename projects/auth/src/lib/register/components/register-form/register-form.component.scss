@@ -1,0 +1,23 @@
+form {
+  nz-form-item.ant-form-item {
+    margin-bottom: 30px;
+  }
+}
+
+.ant-input,
+.ant-picker {
+  font-size: 16px;
+  text-align: center;
+  height: 45px;
+}
+
+.ant-picker {
+  width: 100%;
+  border-radius: 16px;
+
+  ::ng-deep {
+    .ant-picker-input > input {
+      text-align: center !important;
+    }
+  }
+}

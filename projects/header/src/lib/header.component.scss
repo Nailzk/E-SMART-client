@@ -1,7 +1,7 @@
 @import '/src/theme/variables.scss';
 
 .header-wrapper {
-  height: 90px;
+  height: 100px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -50,5 +50,46 @@
         color: $primary-color;
       }
     }
+  }
+}
+
+.search-wrapper {
+  position: absolute;
+  justify-content: center;
+  height: 100px;
+  align-items: center;
+  transform: translateY(-100px) !important;
+  width: 50%;
+  left: 29%;
+  transition: transform 0.5s ease-in-out;
+  margin-top: 25px;
+
+  .ant-input-affix-wrapper {
+    border-radius: 16px;
+
+    .search-input {
+      height: 35px;
+      text-align: center;
+      font-size: 19px;
+    }
+  }
+ 
+}
+
+.search-wrapper.active {
+  transform: translateY(0) !important;
+}
+
+fa-icon.active {
+  color: $primary-color;
+}
+
+.hide-icon {
+  font-size: 18px;
+  transition: opacity 0.5s ease-in-out;
+
+  &:hover {
+    cursor: pointer;
+    opacity: 0.7;
   }
 }

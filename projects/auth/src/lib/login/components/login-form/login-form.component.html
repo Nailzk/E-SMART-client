@@ -1,0 +1,16 @@
+<form nz-form [formGroup]="form">
+  <nz-form-item>
+    <nz-form-control [nzErrorTip]="errors?.login">
+      <nz-input-group nzPrefixIcon="user">
+        <input formControlName="login" nz-input placeholder="Username" />
+      </nz-input-group>
+    </nz-form-control>
+  </nz-form-item>
+  <nz-form-item>
+    <nz-form-control [nzErrorTip]="errors?.password">
+      <nz-input-group nzPrefixIcon="lock">
+        <input formControlName="password" nz-input type="password" placeholder="Password" />
+      </nz-input-group>
+    </nz-form-control>
+  </nz-form-item>
+</form>

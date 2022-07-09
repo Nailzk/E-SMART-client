@@ -19,11 +19,13 @@ import { ProductsModule } from '../../projects/products/src/lib/products.module'
 
 
 import { StarRatingModule } from 'angular-star-rating';
+import { NotFoundComponent } from './not-found/not-found.component';
+import { NzButtonModule } from 'ng-zorro-antd/button';
 
 registerLocaleData(en);
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, NotFoundComponent],
   imports: [
     BrowserModule,
     FormsModule,
@@ -38,6 +40,7 @@ registerLocaleData(en);
     NzNotificationModule,
     NgxTranslateModule,
     NotifierModule,
+    NzButtonModule,
     ReactiveFormsModule,
     FontAwesomeModule,
     BrowserAnimationsModule, // ! IMPORT AS LAST MODULE
