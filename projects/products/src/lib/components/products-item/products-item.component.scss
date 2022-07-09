@@ -1,0 +1,46 @@
+@import '/src/theme/variables.scss';
+
+.card {
+  height: 440px;
+  background-color: #fff;
+  width: 300px;
+  overflow: hidden;
+  border-radius: 16px;
+
+  &-info {
+    padding: 0px 20px;
+
+    &-image {
+      width: 100%;
+      max-width: 360px;
+      max-height: 280px;
+    }
+
+    &-header {
+      text-align: center;
+    }
+
+    .info-wrapper {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+
+      .feedback {
+        color: $gray;
+        font-weight: 400;
+        letter-spacing: 0.3px;
+      }
+    }
+
+    .price {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      h2 {
+        margin: 0;
+      }
+    }
+  }
+}

@@ -36,3 +36,34 @@
   background-color: #f6f6f6;
   color: #b4b4b4;
 }
+
+.ant-input-affix-wrapper {
+  border-radius: 16px;
+  height: 36px;
+}
+
+.ant-input {
+  border-radius: 16px !important;
+  height: 36px;
+}
+
+.ant-form-item-explain-error {
+  font-size: 15px;
+  text-align: center;
+}
+
+.ant-form-item-with-help .ant-form-item-explain {
+  left: 42%;
+  position: absolute;
+  bottom: -60%;
+}
+
+input.ant-input {
+  font-size: 16px;
+  height: 100%;
+  text-align: center  ;
+}
+
+.ant-input-affix-wrapper { 
+  padding: 0;
+}

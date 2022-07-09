@@ -1,8 +1,10 @@
+@import '~css-star-rating/scss/star-rating';
 
 body {
-    margin: 0;
+    margin: 0 !important;
     font-family: 'Mulish', sans-serif !important;
     font-weight: 400 !important; 
+    background-color: #f6f6f6 !important;
 }
 
 .headline {
@@ -11,8 +13,16 @@ body {
     font-weight: 400;
 }
 
+ul {
+    list-style: none;
+}
+
 .white {
     color: #fff;
+}
+
+fa-icon {
+    color: #000;
 }
 
 h1,h2,h3,h4,h5 {

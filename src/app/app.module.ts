@@ -15,11 +15,17 @@ import { NzNotificationModule } from 'ng-zorro-antd/notification';
 import { NgxTranslateModule } from 'translate';
 import { NotifierModule } from 'notifier';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { ProductsModule } from '../../projects/products/src/lib/products.module';
+
+
+import { StarRatingModule } from 'angular-star-rating';
+import { NotFoundComponent } from './not-found/not-found.component';
+import { NzButtonModule } from 'ng-zorro-antd/button';
 
 registerLocaleData(en);
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, NotFoundComponent],
   imports: [
     BrowserModule,
     FormsModule,
@@ -28,14 +34,16 @@ registerLocaleData(en);
     AppRouterModule,
     LayoutModule,
     RepositoriesModule.forRoot(),
+    StarRatingModule.forRoot(),
     FormsModule,
     FontAwesomeModule,
     NzNotificationModule,
     NgxTranslateModule,
     NotifierModule,
+    NzButtonModule,
     ReactiveFormsModule,
-    BrowserAnimationsModule,
-    FontAwesomeModule, // ! IMPORT AS LAST MODULE
+    FontAwesomeModule,
+    BrowserAnimationsModule, // ! IMPORT AS LAST MODULE
   ],
   providers: [{ provide: NZ_I18N, useValue: en_US }],
   bootstrap: [AppComponent],

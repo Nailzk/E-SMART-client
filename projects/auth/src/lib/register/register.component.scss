@@ -1,0 +1,42 @@
+section {
+    margin: 50px 0px;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    align-items: center;
+    align-items: center;
+    min-height: 70vh;
+
+    .wrapper {
+        max-width: 480px;
+        width: 100%;
+        background-color: #fff;
+        border-radius: 16px;
+        display: flex;
+        justify-content: center;
+        padding: 50px 20px;
+        flex-direction: column;
+
+        .heading {
+            margin: 0;
+            font-size: 26px;
+            margin-bottom: 70px;
+            text-align: center;
+        }
+
+        .button {
+            margin-top: 30px;
+        }
+
+        .info {
+            display: flex;
+            justify-content: center;
+            margin-top: 10px;
+            gap: 20px;
+
+            a {
+                font-size: 16px;
+            }
+        }
+    }
+}

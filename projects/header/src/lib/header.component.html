@@ -1,3 +1,16 @@
+<div class="search-wrapper" [ngClass]="{'active': searchActive}">
+  <nz-input-group [nzSuffix]="suffixIcon">
+    <input
+      [(ngModel)]="search"
+      class="search-input"
+      type="text"
+      nz-input
+      placeholder="Search..."
+      (blur)="handleSearch()"
+    />
+  </nz-input-group>
+</div>
+
 <div class="header-wrapper">
   <div class="menu-item icon">
     <a routerLink="/home"> <img src="/assets/SVG/logo.svg" alt="" /> MakeUp Shop</a>
@@ -6,8 +19,18 @@
     <a [routerLink]="item?.link">{{item?.name}}</a>
   </div>
   <div class="icons-wrapper">
-    <fa-icon [icon]="faUser"></fa-icon>
-    <fa-icon [icon]="faSearch"></fa-icon>
-    <fa-icon [icon]="faCart"></fa-icon>
+    <a routerLink="/account"> <fa-icon [icon]="faUser"></fa-icon> </a>
+    <a>
+      <fa-icon
+        [ngClass]="{'active': searchActive}"
+        [icon]="faSearch"
+        (click)="handleSearch()"
+      ></fa-icon>
+    </a>
+    <a href=""> <fa-icon [icon]="faCart"></fa-icon> </a>
   </div>
 </div>
+
+<ng-template #suffixIcon>
+  <fa-icon class="hide-icon" [icon]="faClose" (click)="handleSearch()"></fa-icon>
+</ng-template>
