@@ -17,4 +17,10 @@ export class UsersRepository extends HttpRepository<IUser> {
       .get<IUser | undefined>(`${this._baseUrl}/me`, { ...this._httpOptions })
       .pipe(map((res) => this.transform(res)));
   }
+
+  public validateIsFieldExists(field: string, value: string): Observable<any> {
+    return this._http
+      .get(`${this._baseUrl}/is-exist`, { ...this._httpOptions, params: { field, value } })
+      .pipe(map((res) => this.transform(res)));
+  }
 }

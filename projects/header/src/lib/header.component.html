@@ -19,7 +19,9 @@
     <a [routerLink]="item?.link">{{item?.name}}</a>
   </div>
   <div class="icons-wrapper">
-    <a routerLink="/account"> <fa-icon [icon]="faUser"></fa-icon> </a>
+    <a *ngIf="!isAuthorized else authorizedTemplate">
+      <fa-icon [icon]="faUser" nz-dropdown nzTrigger="click" [nzDropdownMenu]="menu"></fa-icon>
+    </a>
     <a>
       <fa-icon
         [ngClass]="{'active': searchActive}"
@@ -34,3 +36,16 @@
 <ng-template #suffixIcon>
   <fa-icon class="hide-icon" [icon]="faClose" (click)="handleSearch()"></fa-icon>
 </ng-template>
+
+<ng-template #authorizedTemplate>
+  <a routerLink="/account">
+    <fa-icon [icon]="faUser"></fa-icon>
+  </a>
+</ng-template>
+
+<nz-dropdown-menu #menu="nzDropdownMenu">
+  <ul nz-menu nzSelectable>
+    <li nz-menu-item><a routerLink="/auth/login">Login</a></li>
+    <li nz-menu-item><a routerLink="/auth/register">Register</a></li>
+  </ul>
+</nz-dropdown-menu>

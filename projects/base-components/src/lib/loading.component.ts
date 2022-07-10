@@ -69,13 +69,7 @@ export class LoadingComponent<T extends IBaseItem> implements OnInit {
   }
 
   protected showError(message: any): void {
-    let error = message;
- 
-    if(message?.error?.error) {
-        error = message.error.error
-    }
-
-    this._notifier.error(error);
+    this._notifier.error(message);
   }
 
   protected showSuccess(message: string): void {

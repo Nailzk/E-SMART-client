@@ -1,3 +1,6 @@
 {
-    "cyka": "blyat"
+    "error": {
+        "login.userName": "User with current login does not exists",
+        "login.password": "Wrong Password"
+    }
 }

@@ -1,13 +1,13 @@
 <section>
-    <div class="wrapper">
-        <h1 class="heading">Register</h1>
+  <div class="wrapper">
+    <h1 class="heading">Register</h1>
 
-        <lib-register-form></lib-register-form>
+    <lib-register-form #registerForm></lib-register-form>
 
-        <button class="button" nz-button>Sign Up</button>
+    <button class="button" nz-button (click)="register()">Sign Up</button>
 
-        <div class="info">
-            <a routerLink="../login">Log In</a>
-        </div>
+    <div class="info">
+      <a routerLink="../login">Log In</a>
     </div>
+  </div>
 </section>

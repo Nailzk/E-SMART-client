@@ -18,6 +18,7 @@
       "comments": ["projects/comments/index"],
       "communication": ["projects/communication/index"],
       "footer": ["projects/footer/index"],
+      "guards": ["projects/guards/index"],
       "header": ["projects/header/index"],
       "homepage": ["projects/homepage/index"],
       "notifier": ["projects/notifier/index"],

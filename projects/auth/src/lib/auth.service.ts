@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
+import { UsersRepository } from 'communication';
 import { IRegisterFormControl } from './interface';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -7,12 +9,17 @@ import { IRegisterFormControl } from './interface';
 export class AuthService {
   public get registerFormControls(): IRegisterFormControl[] {
     return [
-      { name: 'name', placeHolder: 'Name' },
-      { name: 'surname', placeHolder: 'Surname' },
-      { name: 'phone', placeHolder: 'Phone Number' },
-      { name: 'email', placeHolder: 'Email' },
-      { name: 'password', placeHolder: 'Password' },
+      { name: 'login', placeHolder: 'Login', type: 'text' },
+      { name: 'name', placeHolder: 'Name', type: 'text' },
+      { name: 'surname', placeHolder: 'Surname', type: 'text' },
+      { name: 'phoneNumber', placeHolder: 'Phone Number', type: 'tel' },
+      { name: 'email', placeHolder: 'Email', type: 'email' },
     ];
   }
-  constructor() {}
+
+  constructor(private readonly _usersRepository: UsersRepository) {}
+
+  public validateIsFieldExists(field: string, value: string): Observable<boolean> {
+    return this._usersRepository.validateIsFieldExists(field, value);
+  }
 }

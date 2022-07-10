@@ -4,6 +4,8 @@ import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
 import { HttpRepository, IBaseItem, IPaginationResponse } from 'communication';
 import { finalize } from 'rxjs';
 import * as _ from 'underscore';
+import { DefaultErrorHandler } from './error-handler';
+import { IErrorHandler, IErrorMessage } from './interface';
 import { LoadingComponent } from './loading.component';
 
 @UntilDestroy()
@@ -12,8 +14,11 @@ export class FormsComponent<T extends IBaseItem> extends LoadingComponent<T> imp
   form: FormGroup;
 
   errors: any = {};
+
   protected errorMessages: any = {};
   protected formErrors: any = {};
+
+  private _errorHandler: IErrorHandler = new DefaultErrorHandler(this as any);
 
   constructor(
     @Inject(HttpRepository) protected _repository?: HttpRepository<T>,
@@ -33,19 +38,18 @@ export class FormsComponent<T extends IBaseItem> extends LoadingComponent<T> imp
   ngOnInit() {
     super.ngOnInit();
 
-    this.form = this.createForm();
+    const form = this.createForm();
 
-    this._subscribeOnFormChanges();
+    form.statusChanges.subscribe(() => this._handleStatusChange(form))
 
     if (!this.autoLoadConfig) return;
 
     if (this.autoLoadConfig.onInit) this.loadData();
     if (this.autoLoadConfig.onParamsChanges) this.loadOnParamsChanges();
     if (this.autoLoadConfig.onQueryChanges) this.loadOnQueryParamsChanges();
-  }
 
-  public validateForm(): void {
-    this.form.updateValueAndValidity();
+    this.form = form;
+    this._handleStatusChange(form);
   }
 
   public patchForm(controls: { [key: string]: any }) {
@@ -54,6 +58,45 @@ export class FormsComponent<T extends IBaseItem> extends LoadingComponent<T> imp
 
   protected createForm(): FormGroup {
     return new FormGroup({});
+  }
+
+  protected validateForm() {
+    const controls = this.form.controls;
+
+    for (const key in controls)
+      if (controls.hasOwnProperty(key)) {
+        const control = controls[key];
+        control.markAsTouched({ onlySelf: true });
+        control.updateValueAndValidity({ onlySelf: true, emitEvent: false });
+      }
+
+    this.form.updateValueAndValidity({ onlySelf: true, emitEvent: false });
+  }
+
+  protected _handleStatusChange(form: FormGroup) {
+    const controls = form.controls;
+    const errors: any = {};
+
+    for (const key in controls)
+      if (controls.hasOwnProperty(key)) {
+        const control = controls[key];
+        errors[key] =
+          (control.dirty || control.touched) && control.invalid
+            ? this._errorHandler.getError(key, control.errors)
+            : '';
+      }
+
+    this.errors = errors;
+  }
+
+  protected _getError(key: string, errors: any): string {
+    console.log('some key of error', key, errors);
+    const errorMessages: IErrorMessage = this.errorMessages[key];
+    const errorKey = Object.keys(errors)[0];
+
+    if (errorMessages && typeof errorMessages[errorKey] === 'string') return errorMessages[errorKey] as string;
+
+    return 'Error';
   }
 
   protected loadData(params?: any) {
@@ -99,8 +142,8 @@ export class FormsComponent<T extends IBaseItem> extends LoadingComponent<T> imp
   }
 
   private _subscribeOnFormChanges() {
-    this.form.valueChanges.subscribe((val) => {
-      this._handleFormErrors();
+    this.form.valueChanges.subscribe((form) => {
+      // this._handleStatusChange(this.form);
     });
   }
 

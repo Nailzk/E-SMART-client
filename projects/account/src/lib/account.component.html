@@ -1,15 +1,21 @@
 <div class="settings-container">
   <div class="header">
-    <h1>Account </h1>
+    <h1>{{fullName}}  </h1>
     <fa-icon [icon]="userIcon"></fa-icon>
   </div>
   <div class="layout">
     <div class="layout-routing">
       <ul class="routing-list">
         <li class="routing-list-item" *ngFor="let item of accountMenu">
-          <a [routerLink]="item?.link">
+          <a [routerLink]="item?.link" (click)="item?.action">
             <h2 class="name">{{item?.name || '--'}}</h2>
             <fa-icon [icon]="item.icon"></fa-icon>
+          </a>
+        </li>
+        <li class="routing-list-item">
+          <a (click)="logOut()">
+            <h2 class="name">Log Out</h2>
+            <fa-icon [icon]="faLogOut"></fa-icon>
           </a>
         </li>
       </ul>

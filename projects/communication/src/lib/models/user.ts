@@ -2,13 +2,14 @@ import { IBaseItem } from "../interface";
 import { IRole } from "./role";
 
 export interface IUser extends IBaseItem {
-    userName: string;
+    login: string;
     email: string;
     name: string;
-    surName: string;
-    phone: string;
+    surname: string;
+    phoneNumber: string;
     password: string;
     roleId: number;
+    birthDate: Date;
 
     // ! WHILE JOIN
     role?: IRole;

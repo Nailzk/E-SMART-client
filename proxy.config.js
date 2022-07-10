@@ -16,6 +16,13 @@ var proxyConfig = [
     changeOrigin: true,
   },
   {
+    context: '/api/storage',
+    pathRewrite: { "^/api/storage": "" },
+    target: 'http://localhost:3002',
+    secure: false,
+    changeOrigin: true,
+  },
+  {
     context: '/crm',
     pathRewrite: { "^/crm": "" },
     target: 'http://localhost:4222',

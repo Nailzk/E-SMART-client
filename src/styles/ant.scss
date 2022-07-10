@@ -52,11 +52,11 @@
   text-align: center;
 }
 
-.ant-form-item-with-help .ant-form-item-explain {
-  left: 42%;
-  position: absolute;
-  bottom: -60%;
-}
+// .ant-form-item-with-help .ant-form-item-explain {
+//   left: 46%;
+//   position: absolute;
+//   bottom: -60%;
+// }
 
 input.ant-input {
   font-size: 16px;
@@ -66,4 +66,50 @@ input.ant-input {
 
 .ant-input-affix-wrapper { 
   padding: 0;
+}
+
+.ant-dropdown-menu {
+  color: #000 !important;
+  font-size: 16px;
+
+  * {
+    color: #000;
+    font-size: 16px;
+  }
+
+  li {
+    padding: 8px 12px;
+
+    &:hover {
+      transform: scale(1.01);
+
+      * {
+        color: $primary-color;
+      }
+    }
+  }
+}
+
+::ng-deep {
+  .ant-notification-notice-with-icon .ant-notification-notice-message {
+    display: none;
+  }
+}
+
+.ant-notification {
+  .ant-notification-notice {
+    &-content {
+      .ant-notification-notice-with-icon {
+        .ant-notification-notice-with-icon {
+          .ant-notification-notice-message {
+            display: none;
+          }
+
+          .ant-notification-notice-description {
+            font-size: 17px;
+          }
+        }
+      }
+    }
+  }
 }

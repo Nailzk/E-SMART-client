@@ -578,6 +578,46 @@
           }
         }
       }
+    },
+    "guards": {
+      "projectType": "library",
+      "root": "projects/guards",
+      "sourceRoot": "projects/guards/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/guards/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/guards/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/guards/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/guards/src/test.ts",
+            "tsConfig": "projects/guards/tsconfig.spec.json",
+            "karmaConfig": "projects/guards/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "projects/guards/**/*.ts",
+              "projects/guards/**/*.html"
+            ]
+          }
+        }
+      }
     }
   },
   "defaultProject": "frontend",
