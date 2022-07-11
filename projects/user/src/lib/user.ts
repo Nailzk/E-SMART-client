@@ -76,6 +76,7 @@ export class User {
     this._authRepository.logout().subscribe(
       () => {
         this.user = null;
+        this.isAuthorized = false;
         this._notifier.success('Success')
         this._router.navigateByUrl('/home');
       },

@@ -41,12 +41,14 @@ export class ItemsComponent<T extends IBaseItem> extends LoadingComponent<T> imp
         finalize(() => loading()),
       )
       .subscribe(
-        (res: IPaginationResponse<any>) => {
-          const data = res.data ?? [];
-          this.builder.replaceItems(data);
-        },
+        (res: IPaginationResponse<any>) => this.handleResponse(res),
         (err) => this.showError(err),
       );
+  }
+
+  protected handleResponse(res: IPaginationResponse<T>): void {
+    const data = res.data ?? [];
+    this.builder.replaceItems(data);
   }
 
   protected loadMore(): void {

@@ -1,5 +1,8 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
-import SwiperCore, { FreeMode, Navigation, Pagination, SwiperOptions } from "swiper";
+import { Component, Injector, OnInit, ViewEncapsulation } from '@angular/core';
+import { ImageService } from '@app/service';
+import { ItemsComponent } from 'base-components';
+import { BrandsRepository, IBrand, IPaginationResponse } from 'communication';
+import SwiperCore, { FreeMode, Navigation, SwiperOptions } from 'swiper';
 
 SwiperCore.use([FreeMode, Navigation]);
 
@@ -9,18 +12,35 @@ SwiperCore.use([FreeMode, Navigation]);
   styleUrls: ['./homepage-brands.component.scss'],
   encapsulation: ViewEncapsulation.Emulated,
 })
-export class HomepageBrandsComponent implements OnInit {
-  public brands = [1, 2, 3, 4, 5, 6, 6, 7, 54, 545, 454, 54, 5, 45, 5];
-  
+export class HomepageBrandsComponent extends ItemsComponent<IBrand> implements OnInit {
   public swiperOptions: SwiperOptions = {
     slidesPerView: 'auto',
     spaceBetween: 100,
     width: 240,
     slideClass: 'slide-brand',
-    navigation: true
-  }
-  
-  constructor() {}
+    navigation: true,
+  };
 
-  ngOnInit(): void {}
+  constructor(
+    protected _repository: BrandsRepository,
+    protected _injector: Injector,
+    private readonly _imagesService: ImageService,
+  ) {
+    super();
+    this.autoLoadConfig = { ...this.autoLoadConfig, onInit: true };
+  }
+
+  ngOnInit(): void {
+    super.ngOnInit();
+  }
+  protected handleResponse(res: IPaginationResponse<IBrand>): void {
+    super.handleResponse(res);
+
+    const data = this.items.map((val: IBrand) => ({
+      ...val,
+      photoUrl: this._imagesService.generatePhotoUrlById(val.photoId),
+    }));
+
+    this.builder.replaceItems(data);
+  }
 }
