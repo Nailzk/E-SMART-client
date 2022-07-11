@@ -2,15 +2,30 @@
   <nz-form-item *ngFor="let control of formControls">
     <nz-form-control [nzErrorTip]="errors[control.name]">
       <nz-input-group>
-        <input [formControlName]="control.name" nz-input [placeholder]="control?.placeHolder" />
+        <input
+          [type]="control?.type"
+          [formControlName]="control.name"
+          nz-input
+          [placeholder]="control?.placeHolder"
+        />
+      </nz-input-group>
+    </nz-form-control>
+  </nz-form-item>
+  <nz-form-item>
+    <nz-form-control [nzErrorTip]="errors?.password">
+      <nz-input-group>
+        <input type="password" formControlName="password" nz-input placeholder="Password" />
       </nz-input-group>
     </nz-form-control>
   </nz-form-item>
   <nz-form-item>
     <nz-form-control [nzErrorTip]="errors?.birthDate">
       <nz-input-group>
-        <nz-date-picker formControlName="birthDate" [nzPlaceHolder]="'Choose birth date'" ></nz-date-picker>
-    </nz-input-group>
+        <nz-date-picker
+          formControlName="birthDate"
+          [nzPlaceHolder]="'Choose birth date'"
+        ></nz-date-picker>
+      </nz-input-group>
     </nz-form-control>
   </nz-form-item>
 </form>

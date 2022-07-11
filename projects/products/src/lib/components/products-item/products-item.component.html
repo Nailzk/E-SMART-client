@@ -1,7 +1,7 @@
 <div class="card">
-  <img class="card-image" src="/assets/SVG/product-coverage.svg" alt="" />
+  <img class="card-image" [src]="'/api/storage/storage/' + item?.mainPhotoId" alt="" />
   <div class="card-info">
-    <h2 class="card-header">Men’s black tie Valentino</h2>
+    <h2 class="card-header">{{item?.name || '--'}}</h2>
     <div class="info-wrapper">
       <div class="rating">
         <star-rating [starType]="'svg'" [readOnly]="true" [rating]="2.63"></star-rating>

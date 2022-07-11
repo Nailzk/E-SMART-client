@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { IProduct } from 'communication';
 
 @Component({
   selector: 'lib-products-item',
@@ -6,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./products-item.component.scss']
 })
 export class ProductsItemComponent implements OnInit {
+  @Input() item: IProduct | undefined;
+  
   public rate = 3.40;
   
   constructor() { }

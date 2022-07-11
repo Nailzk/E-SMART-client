@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Injector, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { FormsComponent } from 'base-components';
+import { AuthRepository } from 'communication';
+import { User } from 'user';
 
 @Component({
   selector: 'lib-login-form',
@@ -17,12 +19,34 @@ export class LoginFormComponent extends FormsComponent<any> implements OnInit {
     },
   };
 
-  constructor(private readonly _fb: FormBuilder) {
+  constructor(
+    protected _repository: AuthRepository,
+    protected _injector: Injector,
+    private readonly _fb: FormBuilder,
+    private readonly _user: User,
+  ) {
     super();
+
+    this.autoLoadConfig = { ...this.autoLoadConfig, onInit: false };
   }
 
   ngOnInit(): void {
     super.ngOnInit();
+  }
+
+  public login(): void {
+    if (this.form.invalid) return;
+
+    const loginDto = this.formValues;
+
+    this._repository.login(loginDto).subscribe(
+      (res) => {
+        this._user.loadUser().subscribe();
+        this.showSuccess('Success');
+        this.router.navigateByUrl('/home')
+      },
+      (err) => this.showError(err),
+    );
   }
 
   protected createForm(): FormGroup {

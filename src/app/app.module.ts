@@ -6,21 +6,21 @@ import { HttpClientModule } from '@angular/common/http';
 import en from '@angular/common/locales/en';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { RepositoriesModule } from 'communication';
 import { en_US, NZ_I18N } from 'ng-zorro-antd/i18n';
+import { NzNotificationModule } from 'ng-zorro-antd/notification';
+import { NotifierModule } from 'notifier';
+import { NgxTranslateModule } from 'translate';
 import { AppRouterModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LayoutModule } from './layout/layout.module';
-import { NzNotificationModule } from 'ng-zorro-antd/notification';
-import { NgxTranslateModule } from 'translate';
-import { NotifierModule } from 'notifier';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { ProductsModule } from '../../projects/products/src/lib/products.module';
-
 
 import { StarRatingModule } from 'angular-star-rating';
-import { NotFoundComponent } from './not-found/not-found.component';
 import { NzButtonModule } from 'ng-zorro-antd/button';
+import { UserModule } from 'user';
+import { NzIconsModule } from './icons.module';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 registerLocaleData(en);
 
@@ -43,6 +43,8 @@ registerLocaleData(en);
     NzButtonModule,
     ReactiveFormsModule,
     FontAwesomeModule,
+    UserModule,
+    NzIconsModule,
     BrowserAnimationsModule, // ! IMPORT AS LAST MODULE
   ],
   providers: [{ provide: NZ_I18N, useValue: en_US }],

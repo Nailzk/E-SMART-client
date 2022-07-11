@@ -1,9 +1,17 @@
 import { Component, OnInit } from '@angular/core';
-import { faClose, faMagnifyingGlass, faShoppingCart, faUser } from '@fortawesome/free-solid-svg-icons';
+import {
+  faClose,
+  faMagnifyingGlass,
+  faShoppingCart,
+  faUser,
+} from '@fortawesome/free-solid-svg-icons';
 import { ILang, NgxTranslateService } from 'translate';
+import { User } from 'user';
 import { HeaderService } from './header.service';
 import { IHeaderMenu } from './interface';
+import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
 
+@UntilDestroy()
 @Component({
   selector: 'lib-header',
   templateUrl: './header.component.html',
@@ -14,7 +22,7 @@ export class HeaderComponent implements OnInit {
   public headerMenu: IHeaderMenu[] = [];
 
   public currentLang: string;
-  public search = ''
+  public search = '';
 
   public faUser = faUser;
   public faSearch = faMagnifyingGlass;
@@ -22,18 +30,22 @@ export class HeaderComponent implements OnInit {
   public faClose = faClose;
 
   public searchActive = false;
+  public isAuthorized = false;
 
   constructor(
     private readonly _translateService: NgxTranslateService,
     private readonly _headerService: HeaderService,
+    private readonly _user: User,
   ) {}
 
   ngOnInit(): void {
     this.langList = this._translateService.langList;
     this.currentLang = this._translateService.currentLanguage;
     this.headerMenu = this._headerService.menuList;
+    this.isAuthorized = this._user.isAuthorized;
 
     this._subscribeOnLanguageChanges();
+    this._subscribeOnUserChanges();
   }
 
   public handleSearch(): void {
@@ -45,8 +57,17 @@ export class HeaderComponent implements OnInit {
   }
 
   private _subscribeOnLanguageChanges() {
-    this._translateService.onLanguageChanges().subscribe((val) => {
-      this.currentLang = val.label;
+    this._translateService
+      .onLanguageChanges()
+      .pipe(untilDestroyed(this))
+      .subscribe((val) => {
+        this.currentLang = val.label;
+      });
+  }
+
+  private _subscribeOnUserChanges() {
+    this._user.onUserChanges.pipe(untilDestroyed(this)).subscribe((user) => {
+      this.isAuthorized = !!user
     });
   }
 }

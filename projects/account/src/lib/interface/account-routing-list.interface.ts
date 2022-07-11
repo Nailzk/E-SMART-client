@@ -4,4 +4,5 @@ export interface IAccountRoutingMenu {
   icon: IconDefinition;
   name: string;
   link: string;
+  action?: () => void; 
 }

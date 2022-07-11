@@ -18,7 +18,8 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
     FontAwesomeModule,
     NzInputModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    NzDropDownModule
   ],
   exports: [HeaderComponent],
 })

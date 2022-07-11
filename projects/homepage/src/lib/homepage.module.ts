@@ -9,15 +9,18 @@ import { SwiperModule } from 'swiper/angular';
 import { HomepagePopularComponent } from './components/homepage-popular/homepage-popular.component';
 import { HomepageBrandsComponent } from './components/homepage-brands/homepage-brands.component';
 import { HomepageBrandsItemComponent } from './components/homepage-brands-item/homepage-brands-item.component';
+import { HomepageProductsComponent } from './components/homepage-products/homepage-products.component';
+import { ProductsModule } from 'products';
 
 @NgModule({
-  declarations: [HomepageComponent, HomepageSliderComponent, HomepagePopularComponent, HomepageBrandsComponent, HomepageBrandsItemComponent],
+  declarations: [HomepageComponent, HomepageSliderComponent, HomepagePopularComponent, HomepageBrandsComponent, HomepageBrandsItemComponent, HomepageProductsComponent],
   imports: [
     CommonModule, 
     RouterModule.forChild([{ path: '', component: HomepageComponent }]),
     NzCarouselModule,
     NzButtonModule,
-    SwiperModule
+    SwiperModule,
+    ProductsModule,
   ],
   exports: [HomepageComponent],
 })

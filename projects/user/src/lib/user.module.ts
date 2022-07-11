@@ -1,5 +1,5 @@
 import { APP_INITIALIZER, NgModule } from '@angular/core';
-import { User } from './user.service';
+import { User } from './user';
 
 @NgModule({
   providers: [
@@ -7,9 +7,9 @@ import { User } from './user.service';
     {
       provide: APP_INITIALIZER,
       useClass: User,
-      useFactory: (user: User) => () => {
-        return user;
-      },
+      multi: true,
+      deps: [User],
+      useFactory: (service: User) => () => {return service.loadUser()}
     },
   ],
 })

@@ -1,15 +1,16 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { AuthRepository } from 'communication';
+import { RegisterFormComponent } from './components/register-form/register-form.component';
 
 @Component({
   selector: 'lib-register',
   templateUrl: './register.component.html',
-  styleUrls: ['./register.component.scss']
+  styleUrls: ['./register.component.scss'],
 })
-export class RegisterComponent implements OnInit {
+export class RegisterComponent {
+  @ViewChild('registerForm') registerForm: RegisterFormComponent;
 
-  constructor() { }
-
-  ngOnInit(): void {
+  public register(): void {
+    this.registerForm.register();
   }
-
 }

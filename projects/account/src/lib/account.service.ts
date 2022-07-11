@@ -1,5 +1,8 @@
 import { Injectable } from '@angular/core';
-import { faAddressBook, faGear, faList } from '@fortawesome/free-solid-svg-icons';
+import {
+  faAddressBook, faGear,
+  faList
+} from '@fortawesome/free-solid-svg-icons';
 import { IAccountRoutingMenu } from './interface';
 
 @Injectable({

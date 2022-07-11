@@ -1,15 +1,15 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
+import { LoginFormComponent } from './components/login-form/login-form.component';
 
 @Component({
   selector: 'lib-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss']
+  styleUrls: ['./login.component.scss'],
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent {
+  @ViewChild('loginForm') loginForm: LoginFormComponent;
 
-  constructor() { }
-
-  ngOnInit(): void {
+  public login(): void {
+    this.loginForm.login();
   }
-
 }
