@@ -9,6 +9,7 @@ export interface IUser extends IBaseItem {
     phoneNumber: string;
     password: string;
     roleId: number;
+    photoId?: string;
     birthDate: Date;
 
     // ! WHILE JOIN

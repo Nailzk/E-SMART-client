@@ -16,7 +16,6 @@ export class HomepageBrandsComponent extends ItemsComponent<IBrand> implements O
   public swiperOptions: SwiperOptions = {
     slidesPerView: 'auto',
     spaceBetween: 100,
-    width: 240,
     slideClass: 'slide-brand',
     navigation: true,
   };

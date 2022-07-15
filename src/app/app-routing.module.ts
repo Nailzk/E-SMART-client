@@ -25,6 +25,10 @@ const modules: Route[] = [
         loadChildren: () => import('auth').then((m) => m.AuthModule),
       },
       {
+        path: 'products',
+        loadChildren: () => import('products').then((m) => m.ProductsModule),
+      },
+      {
         path: 'not-found',
         component: NotFoundComponent,
       },

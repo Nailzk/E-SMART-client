@@ -1,0 +1,40 @@
+<section>
+  <div class="photo-swiper">
+    <lib-product-image-swiper [photoIds]="item?.photoIds"></lib-product-image-swiper>
+  </div>
+
+  <div class="product-info">
+    <div class="heading-wrapper">
+      <h1 class="headline">{{item?.name || '--'}}</h1>
+      <fa-icon
+        [icon]="faHeart"
+        [ngClass]="{'active': isFavorite}"
+        (click)="handleFavorite()"
+      ></fa-icon>
+    </div>
+    <div class="rating mb-30">
+      <star-rating [starType]="'svg'" [readOnly]="true" [rating]="item?.rating || 0"></star-rating>
+      <p class="m-0">{{item?.rates?.length || 0}} Comments</p>
+    </div>
+
+    <nz-tabset class="mb-30">
+      <nz-tab nzTitle="Description">{{item?.description || '--'}}</nz-tab>
+      <nz-tab nzTitle="Brand">
+        <div class="brand-wrapper">
+          <img [src]="generatePhotoUrl(item?.brand?.photoId)" [alt]="item?.brand?.name" />
+          <p class="m-0 description">{{item?.brand?.description || '--'}}</p>
+        </div>
+      </nz-tab>
+      <nz-tab nzTitle="Delivery">Content of Tab Pane 3</nz-tab>
+    </nz-tabset>
+
+    <div class="actions">
+      <h2 class="m-0">₴{{item?.price || 0 | number: '1.2-2'}}</h2>
+      <button nz-button nzType="primary">Buy Now</button>
+      <button nz-button>Add To Card</button>
+    </div>
+  </div>
+</section>
+
+<lib-comments-create [productId]="item?.id"></lib-comments-create>
+<lib-comments-list></lib-comments-list>

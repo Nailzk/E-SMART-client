@@ -1,7 +1,7 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
-import SwiperCore, { Pagination } from "swiper";
+import { Component, ViewEncapsulation } from '@angular/core';
+import SwiperCore, { Navigation, Pagination, SwiperOptions } from "swiper";
 
-SwiperCore.use([Pagination]);
+SwiperCore.use([Pagination,Navigation]);
 
 @Component({
   selector: 'lib-homepage-slider',
@@ -9,11 +9,10 @@ SwiperCore.use([Pagination]);
   styleUrls: ['./homepage-slider.component.scss'],
   encapsulation: ViewEncapsulation.None
 })
-export class HomepageSliderComponent implements OnInit {
-  public readonly effect = 'scrollx';
-  constructor() { }
-
-  ngOnInit(): void {
+export class HomepageSliderComponent {
+  public swiperOptions: SwiperOptions = {
+    cssMode: true,
+    pagination: true,
+    navigation: true
   }
-
 }

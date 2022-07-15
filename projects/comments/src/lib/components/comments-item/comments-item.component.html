@@ -1,1 +1,29 @@
-<p>comments-item works!</p>
+<section class="comment">
+  <nz-comment [nzAuthor]="fullName" [nzDatetime]="item?.createdAt | timeago">
+    <nz-avatar
+      nz-comment-avatar
+      [nzSrc]="avatarUrl"
+      [nzSize]="54"
+    ></nz-avatar>
+    <nz-comment-content>
+      <star-rating [starType]="'svg'" [readOnly]="true" [rating]="item?.rating || 0"></star-rating>
+      <p class="m-0">{{item?.body}}</p>
+    </nz-comment-content>
+    <nz-comment-content class="images" *ngIf="item?.photoIds?.length">
+      <ul class="images-list">
+        <li class="images-list-item" *ngFor="let item of item?.photoIds">
+          <img [src]="generatePhotoUrl(item)" [alt]="item" (click)="handleImageClick(item)" />
+        </li>
+      </ul>
+    </nz-comment-content>
+  </nz-comment>
+  <div class="edit" *ngIf="item?.userId === userId && item?.body || item?.photoIds?.length">
+    <fa-icon [icon]="faEllipsis"></fa-icon>
+  </div>
+</section>
+
+<lib-image-preview
+  [isVisible]="isVisible"
+  (afterClose)="handleCloseModal()"
+  [photoUrl]="generatePhotoUrl(idToPreview)"
+></lib-image-preview>

@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
 import { AuthRepository, IUser, UsersRepository } from 'communication';
-import { CookieService } from 'ngx-cookie-service';
 import { NotifierService } from 'notifier';
 import { Observable, Subject } from 'rxjs';
 

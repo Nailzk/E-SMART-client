@@ -1,4 +1,4 @@
-@import '~css-star-rating/scss/star-rating';
+@import '/src/theme/variables.scss';
 
 body {
     margin: 0 !important;
@@ -28,3 +28,11 @@ fa-icon {
 h1,h2,h3,h4,h5 {
     font-weight: 400 !important;
 }
+
+$color-negative-rating: $primary-color !default;
+$color-ok-rating: $primary-color !default;
+$color-positive-rating: $primary-color !default;
+$color-default-rating: $primary-color !default;
+
+
+@import "~css-star-rating/scss/star-rating";

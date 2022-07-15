@@ -1,0 +1,12 @@
+<nz-modal
+  [(nzVisible)]="isVisible"
+  nzTitle="Image Preview"
+  (nzOnCancel)="handleClose()"
+  [nzCentered]="true"
+  [nzFooter]="null"
+  [nzMaskStyle]="modalMask"
+>
+  <ng-container *nzModalContent>
+    <img [src]="photoUrl" alt="">
+  </ng-container>
+</nz-modal>

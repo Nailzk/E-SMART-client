@@ -1,6 +1,7 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Inject, Injectable } from '@angular/core';
-import { map, Observable } from 'rxjs';
+import { map, Observable, of } from 'rxjs';
+import { EMPTY_RESPONSE } from '../constant';
 import { IBaseItem, IPaginationResponse } from '../interface';
 import { Repository } from './repository';
 
@@ -16,6 +17,24 @@ export class HttpRepository<T extends IBaseItem> extends Repository<T> {
 
   protected get _baseUrl(): string {
     throw new Error(`Implement _baseUrl for ${this.constructor.name}`);
+  }
+
+  public getItemById(id: number): Observable<T> {
+    return this._http
+      .get(`${this._baseUrl}/${id}`, { ...this._httpOptions })
+      .pipe(map((val) => this.transform(val)));
+  }
+
+  public getItemsByField(values: any[], field: string = 'id'): Observable<IPaginationResponse<T>> {
+    if (!values?.length) return of(EMPTY_RESPONSE);
+
+    const params = new HttpParams({
+      fromObject: { s: JSON.stringify({ [field]: { $in: values } }) },
+    });
+
+    return this._http
+      .get(`${this._baseUrl}`, { ...this._httpOptions, params })
+      .pipe(map((val) => this.transform(val)));
   }
 
   public getItems(params?: any): Observable<IPaginationResponse<T>> {
@@ -42,8 +61,10 @@ export class HttpRepository<T extends IBaseItem> extends Repository<T> {
       .pipe(map(this._transformEventResponse));
   }
 
-  public createItem(item: T): Observable<T> {
-    return this._http.post(this._baseUrl, item, { ...this._httpOptions }).pipe(map(this._transformEventResponse));
+  public createItem(item: Partial<T>): Observable<T> {
+    return this._http
+      .post(this._baseUrl, item, { ...this._httpOptions })
+      .pipe(map(this._transformEventResponse));
   }
 
   protected transform(item: any): any {

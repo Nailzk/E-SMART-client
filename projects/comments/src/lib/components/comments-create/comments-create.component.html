@@ -1,1 +1,36 @@
-<p>comments-create works!</p>
+<section>
+  <h1 class="headline">Add Comment</h1>
+  <form nz-form [formGroup]="form" nzLayout="vertical">
+    <nz-form-item>
+      <nz-form-control [nzErrorTip]="errors?.body">
+        <nz-textarea-count [nzMaxCharacterCount]="maxLength">
+          <textarea rows="4" formControlName="body" nz-input [maxlength]="maxLength"></textarea>
+        </nz-textarea-count>
+      </nz-form-control>
+    </nz-form-item>
+  </form>
+  <div class="rating-wrapper">
+    <star-rating [starType]="'svg'" [rating]="rating" (ratingChange)="handleRateChange($event)"></star-rating>
+  </div>
+  <div class="buttons">
+    <button nz-button (click)="createComment()">Add Comment</button>
+    <nz-upload
+      nzAction="api/storage/storage"
+      (nzChange)="handleChange($event)"
+      [nzShowUploadList]="false"
+    >
+      <button nz-button nzType="primary" class="button">
+        Upload Photo
+        <fa-icon [icon]="faCamera"></fa-icon>
+      </button>
+    </nz-upload>
+  </div>
+  <div class="images-wrapper" *ngIf="fileIds.length">
+    <ul class="images-list">
+      <li class="images-list-item" *ngFor="let id of fileIds">
+        <img [src]="generatePhotoUrl(id)" [alt]="id" />
+        <fa-icon class="close" [icon]="faClose" (click)="removeImage(id)"></fa-icon>
+      </li>
+    </ul>
+  </div>
+</section>

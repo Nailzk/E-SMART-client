@@ -1,0 +1,16 @@
+<section class="image-swiper">
+  <div class="general-image-wrapper">
+    <img [src]="generatePhotoUrl(generalPhotoId)" class="general-image" alt="" />
+  </div>
+  <swiper [config]="swiperOptions" class="mySwiper imagesSwiper">
+    <ng-template swiperSlide *ngFor="let id of photoIds">
+      <img
+        class="image-slide"
+        [ngClass]="{'active': id === generalPhotoId}"
+        [src]="generatePhotoUrl(id)"
+        (click)="handleImageSelect(id)"
+        alt=""
+      />
+    </ng-template>
+  </swiper>
+</section>

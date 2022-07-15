@@ -6,7 +6,8 @@ export const environment = {
   production: false,
   productsApiUrl: '/api/products',
   authApiUrl: '/api/auth',
-  storageApiUrl: '/api/storage'
+  storageApiUrl: '/api/storage',
+  defaultUserPhotoId: '$2b$10$NBRJsLKVSVH6DGvRp3UpuFJcSAtQnVE5bizIeXrNk1YHDVHJNyTK'
 };
 
 
