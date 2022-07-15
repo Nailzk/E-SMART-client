@@ -1,9 +1,14 @@
 import { IBaseItem } from "../interface";
+import { IBasketItem } from "./basket-item";
+import { IBrand } from './brand';
+import { IFavorite } from "./favorite";
 
 export interface IProduct extends IBaseItem {
   id: number;
   name: string;
   description: string;
+  price: number;
+  rating: number;
   rates: number[];
   mainPhotoId: string;
   photoIds: string[];
@@ -17,13 +22,16 @@ export interface IProduct extends IBaseItem {
   agePlus: number;
   category: any;
   categoryId: number;
-  categoryType: any;
   categoryTypeId: number;
-  categorySubject: any;
   categorySubjectId: number;
-  basketItems: any[];
-  brand: any;
   brandId: number;
-  comments: any[];
   createdAt: Date;
+
+  // ! WHILE JOIN
+  categoryType?: any;
+  comments?: any[];
+  categorySubject?: any;
+  brand?: IBrand;
+  favorites?: IFavorite[];
+  basketItems?: IBasketItem[];
 }

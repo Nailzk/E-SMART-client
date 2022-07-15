@@ -1,0 +1,85 @@
+@import '/src/theme/variables.scss';
+
+section {
+    max-width: 1140px;
+    border-radius: 16px;
+    padding: 20px;
+    margin: 0 auto;
+    margin-top: 30px;
+    background-color: #fff;
+
+    .headline {
+        font-size: 24px;
+        margin-bottom: 10px;
+    }
+
+    .ant-input-textarea-show-count>.ant-input {
+        font-size: 16px;
+    }
+
+    .button {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+
+        fa-icon { 
+            color: #fff;
+            font-size: 24px;
+            transition: all 0.5s ease-in-out;
+        }
+
+        &:hover {
+            fa-icon {
+                color: $secondary-color !important;
+            }
+        }
+    }
+
+    .buttons {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 20px;
+    }
+
+    .images-wrapper {
+        margin-top: 15px;
+
+        .images-list {
+            display: flex;
+            gap: 20px 40px;
+
+            &-item {
+            position: relative;
+
+            img {
+                max-height: 64px;
+                max-width: 64px;
+            }
+
+            .close {
+                position: absolute;
+                top: -15px;
+                right: -15px;
+                font-size: 20px;
+                color: $primary-color;
+                transition: opacity 0.5s ease-in-out;
+
+                &:hover {
+                    cursor: pointer;
+                    opacity: 0.7;
+                }
+            }
+          }  
+        }
+    }
+
+    .rating-wrapper {
+        ::ng-deep {
+            .rating {
+                justify-content: flex-start;
+                margin-bottom: 15px;
+            }
+        }
+    }
+}

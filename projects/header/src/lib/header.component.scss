@@ -44,10 +44,26 @@
     fa-icon {
       font-size: 21px;
       transition: 0.5s ease-in-out;
-      
+
       &:hover {
         cursor: pointer;
         color: $primary-color;
+      }
+    }
+
+    a {
+      position: relative;
+
+      .badge {
+        position: absolute;
+        right: -18px;
+        top: -10px;
+        border-radius: 50%;
+        background-color: $primary-color;
+        color: #fff;
+        width: 24px;
+        height: 24px;
+        text-align: center;
       }
     }
   }
@@ -67,14 +83,13 @@
   .ant-input-affix-wrapper {
     border-radius: 16px;
     height: 40px;
-    
+
     .search-input {
       height: 35px;
       text-align: center;
       font-size: 19px;
     }
   }
- 
 }
 
 .search-wrapper.active {
@@ -92,5 +107,61 @@ fa-icon.active {
   &:hover {
     cursor: pointer;
     opacity: 0.7;
+  }
+}
+
+.products-list {
+  padding: 10px;
+  .total {
+    &:hover {
+      transform: scale(1);  
+      background-color: transparent;
+
+      * {
+        color: #000;
+      }
+    }
+  }
+
+  li {
+    padding: 4px;
+    display: flex;
+    margin-bottom: 10px;
+    gap: 20px;
+    justify-content: flex-start;
+    min-width: 250px;
+
+    .product-image {
+      max-height: 48px;
+      max-width: 48px;
+    }
+
+    h1,
+    h3 {
+      margin: 0;
+      margin-bottom: 0;
+      transition: all 0.5s ease-in-out;
+    }
+
+    h3 {
+      color: #808088;
+      margin-left: auto;
+    }
+
+    fa-icon {
+      color: #000;
+      transition: 0.5s ease-in-out;
+    }
+
+    &:hover {
+      h3 {
+        color: $primary-color;
+      }
+
+      fa-icon {
+        color: #000;
+        transition: 0.5s ease-in-out;
+      }
+    }
   }
 }

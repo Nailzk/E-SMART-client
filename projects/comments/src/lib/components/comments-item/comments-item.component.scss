@@ -1,0 +1,65 @@
+.comment {
+  display: flex;
+
+  nz-comment {
+    flex-basis: 99%;
+  }
+
+  .edit {
+    margin-top: 30px;
+
+    fa-icon {
+      font-size: 21px;
+      transition: all 0.5s ease-in-out;
+
+      &:hover {
+        cursor: pointer;
+        opacity: 0.7;
+      }
+    }
+  }
+
+  .images {
+    margin-top: 20px;
+
+    .images-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, 64px);
+      gap: 20px;
+      justify-content: space-between;
+
+      &-item {
+        img {
+          max-height: 64px;
+          max-width: 64px;
+          transition: transform 0.5s ease-in-out;
+
+          &:hover {
+            cursor: pointer;
+            transform: scale(1.02);
+          }
+        }
+      }
+    }
+  }
+}
+
+:host ::ng-deep {
+  .rating {
+    justify-content: flex-start;
+    margin-bottom: 10px;
+  }
+
+  .ant-comment-avatar img {
+    width: 54px;
+    height: 54px;
+  }
+
+  .ant-comment-content-author > span {
+    font-size: 16px;
+  }
+
+  .ant-comment-content-author-time {
+    font-size: 13px !important;
+  }
+}

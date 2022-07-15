@@ -38,6 +38,7 @@
     "eslint-plugin-unused-imports": "2.0.0",
     "less-plugin-clean-css": "1.5.1",
     "ng-zorro-antd": "13.3.0",
+    "ngx-timeago": "^2.0.0",
     "node-gyp": "9.0.0",
     "rxjs": "7.5.0",
     "swiper": "8.3.0",

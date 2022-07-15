@@ -19,8 +19,8 @@
     <a [routerLink]="item?.link">{{item?.name}}</a>
   </div>
   <div class="icons-wrapper">
-    <a *ngIf="!isAuthorized else authorizedTemplate">
-      <fa-icon [icon]="faUser" nz-dropdown nzTrigger="click" [nzDropdownMenu]="menu"></fa-icon>
+    <a [routerLink]="isAuthorized ? '/account' : '/auth/login'">
+      <fa-icon [icon]="faUser"></fa-icon>
     </a>
     <a>
       <fa-icon
@@ -29,7 +29,10 @@
         (click)="handleSearch()"
       ></fa-icon>
     </a>
-    <a href=""> <fa-icon [icon]="faCart"></fa-icon> </a>
+    <a nz-dropdown [nzDropdownMenu]="menu" nzTrigger="click">
+      <fa-icon [icon]="faCart"></fa-icon>
+      <div class="badge" *ngIf="products?.length">{{products?.length}}</div>
+    </a>
   </div>
 </div>
 
@@ -37,15 +40,15 @@
   <fa-icon class="hide-icon" [icon]="faClose" (click)="handleSearch()"></fa-icon>
 </ng-template>
 
-<ng-template #authorizedTemplate>
-  <a routerLink="/account">
-    <fa-icon [icon]="faUser"></fa-icon>
-  </a>
-</ng-template>
-
 <nz-dropdown-menu #menu="nzDropdownMenu">
-  <ul nz-menu nzSelectable>
-    <li nz-menu-item><a routerLink="/auth/login">Login</a></li>
-    <li nz-menu-item><a routerLink="/auth/register">Register</a></li>
+  <ul nz-menu class="products-list">
+    <li nz-menu-item *ngFor="let item of products">
+      <img class="product-image" [src]="generatePhotoUrl(item.mainPhotoId)" alt="" />
+      <h1 class="name">{{item?.name}}</h1>
+      <h3 class="price">{{item?.price || 0 | number: '1.2-2'}}₴</h3>
+      <fa-icon [icon]="faClose"></fa-icon>
+    </li>
+    <li nz-menu-item class="total">Total: {{total || 0 | number: '1.2-2'}}₴</li>
   </ul>
+  <div class="total"></div>
 </nz-dropdown-menu>

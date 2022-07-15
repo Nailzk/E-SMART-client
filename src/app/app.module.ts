@@ -21,6 +21,7 @@ import { NzButtonModule } from 'ng-zorro-antd/button';
 import { UserModule } from 'user';
 import { NzIconsModule } from './icons.module';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { TimeagoModule } from 'ngx-timeago';
 
 registerLocaleData(en);
 
@@ -45,6 +46,7 @@ registerLocaleData(en);
     FontAwesomeModule,
     UserModule,
     NzIconsModule,
+    TimeagoModule.forRoot(),
     BrowserAnimationsModule, // ! IMPORT AS LAST MODULE
   ],
   providers: [{ provide: NZ_I18N, useValue: en_US }],

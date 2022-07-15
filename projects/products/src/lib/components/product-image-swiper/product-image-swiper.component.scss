@@ -1,0 +1,65 @@
+@import '~swiper/css';
+@import '~swiper/css/navigation';
+
+@import '/src/theme/variables.scss';
+
+.image-swiper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+
+  .general-image-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 400px;
+
+    .general-image {
+      max-height: 400px;
+      width: 100%;
+    }
+  }
+
+  .image-slide {
+    width: 64px;
+    height: 64px;
+    border-radius: 8px;
+
+    transition: all 0.5s ease-in-out;
+
+    &:hover {
+      transform: scale(1.02);
+      cursor: pointer;
+    }
+  }
+
+  .image-slide.active {
+    border: 2px solid $primary-color;
+  }
+
+  .swiper-slide {
+    width: 64px !important;
+
+    .image-slide {
+      width: 64px;
+    }
+  }
+
+  .imagesSwiper {
+    width: 100%;
+  }
+
+  .swiper-wrapper {
+    padding: 20px 40px;
+  }
+
+  .swiper-button-next, .swiper-button-prev {
+    color: $primary-color;
+
+    &::after {
+        font-size: 23px;
+    }
+  }
+}

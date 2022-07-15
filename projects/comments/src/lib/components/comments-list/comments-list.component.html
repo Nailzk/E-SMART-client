@@ -1,1 +1,7 @@
-<p>comments-list works!</p>
+<section *ngIf="items?.length">
+    <ul class="comments-list">
+        <li class="comments-list-item" *ngFor="let comment of items">
+            <lib-comments-item [item]="comment"></lib-comments-item>
+        </li>
+    </ul>
+</section>

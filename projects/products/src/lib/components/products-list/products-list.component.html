@@ -1,0 +1,7 @@
+<swiper [config]="swiperOptions" class="mySwiper brandsSwiper">
+  <ng-template swiperSlide *ngFor="let product of items">
+    <div class="slide-product">
+      <lib-products-item [item]="product"></lib-products-item>
+    </div>
+  </ng-template>
+</swiper>

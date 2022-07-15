@@ -1,0 +1,4 @@
+<section class="wrapper" *ngFor="let item of items">
+  <h1 class="headline">{{item?.name}}</h1>
+  <lib-products-list [category]="item"></lib-products-list>
+</section>

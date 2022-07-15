@@ -11,9 +11,10 @@ import { HomepageBrandsComponent } from './components/homepage-brands/homepage-b
 import { HomepageBrandsItemComponent } from './components/homepage-brands-item/homepage-brands-item.component';
 import { HomepageProductsComponent } from './components/homepage-products/homepage-products.component';
 import { ProductsModule } from 'products';
+import { HomepageCategoryProductsComponent } from './components/homepage-category-products/homepage-category-products.component';
 
 @NgModule({
-  declarations: [HomepageComponent, HomepageSliderComponent, HomepagePopularComponent, HomepageBrandsComponent, HomepageBrandsItemComponent, HomepageProductsComponent],
+  declarations: [HomepageComponent, HomepageSliderComponent, HomepagePopularComponent, HomepageBrandsComponent, HomepageBrandsItemComponent, HomepageProductsComponent, HomepageCategoryProductsComponent],
   imports: [
     CommonModule, 
     RouterModule.forChild([{ path: '', component: HomepageComponent }]),
